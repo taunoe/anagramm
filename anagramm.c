@@ -2,7 +2,7 @@
  * File: anagramm.c
  * Author: Tauno Erik
  * Created: 23.02.2019
- * Last edit: 24.02.2019
+ * Last edit: 25.02.2019
  * 
  * Description: Finds all anagrams for provided word from a provided
  * 				dictionary.
