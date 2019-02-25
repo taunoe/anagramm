@@ -123,8 +123,7 @@ int main(int argc, char *argv[])
 	
 	clock_t end = clock();
 	
-	duration = (double)(end - begin); 
-	//duration = (double)(end - begin) / CLOCKS_PER_SEC;
+	duration = (double)(end - begin) / (CLOCKS_PER_SEC/1000);
 	
 	printf("%.2f", duration);
 	
