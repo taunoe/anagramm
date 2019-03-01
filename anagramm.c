@@ -2,7 +2,7 @@
  * File: anagramm.c
  * Author: Tauno Erik
  * Created: 23.02.2019
- * Last edit: 25.02.2019
+ * Last edit: 01.03.2019
  * 
  * Description: Finds all anagrams for provided word from a provided
  * 				dictionary.
@@ -14,41 +14,48 @@
  * 
  */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <memory.h>
 
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 50
 
 void lower_string(char []);
 
 int main(int argc, char *argv[])
 {
 	double duration;
-	char temp;
-	//int i = 0;
-	//int j = 0;
-	
 	
 	clock_t begin = clock();
 	
 	FILE *fp;
+	
 	char buffer[BUFFER_SIZE];
 	char anagramm[BUFFER_SIZE];
 	char foundAnagramms[50][BUFFER_SIZE];
-
 	
-	
-	char *firstWord = argv[2]; // first word
-	int firstWordLen = strlen(firstWord);
 	int secondWordLen = 0;
-	
 	int fac = 0; // found anagramm counter
 	
-	//printf("%s\n", argv[1]); // dict.txt
-	//printf("%s\n", argv[2]); // word
+	char *firstWord = argv[2];
+	
+	// if two words
+	if (argv[3])
+	{
+		char space[2];
+		firstWord = (char *) malloc(2 + strlen(argv[2])+ strlen(argv[3]) );
+		strcpy(space, " ");
+		strcpy(firstWord, argv[2]);
+		strcat(firstWord, space);
+		strcat(firstWord, argv[3]);
+	}
+
+ 
+	int firstWordLen = strlen(firstWord);
 	
 	// If no dict and/or word
-	if (argc != 3)
+	if (argc < 3)
 	{
 		fprintf(stderr, "Usage: %s <dict.txt> <word>\n", argv[0]);
 		return 1;
@@ -81,6 +88,7 @@ int main(int argc, char *argv[])
 		// if words are same length
 		if (firstWordLen == secondWordLen )
 		{
+			char temp;
 			// Sort both words
 			for (int i = 0; i < firstWordLen; i++) 
 			{
@@ -123,6 +131,7 @@ int main(int argc, char *argv[])
 	
 	clock_t end = clock();
 	
+	//duration = (double)(end - begin); 
 	duration = (double)(end - begin) / CLOCKS_PER_SEC;
 	duration = duration*1000000;
 	
