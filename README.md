@@ -9,4 +9,7 @@ Run: `./bin/anagramm lemmad.txt word`
 
 Tested on Ubuntu 18.04.02
 
+TODO:
+Problems with wide character: "ö", "ü", "ä" etc.
+
 ![alt text](https://github.com/taunoe/anagramm/blob/master/images/anagramm.png)
