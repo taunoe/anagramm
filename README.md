@@ -13,3 +13,7 @@ TODO:
 Problems with reading "wide characters": "ö", "ü", "ä" etc.
 
 ![alt text](https://github.com/taunoe/anagramm/blob/master/images/anagramm.png)
+
+___
+
+Copyright 2021 Tauno Erik https://taunoerik.art
